@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bg solar chatbot</title>
-    <style>
+    <!-- <style>
       .whatsapp_main {
         position: fixed;
         text-align: right;
@@ -44,7 +44,69 @@
           transform: translateY(0);
         }
       }
-    </style>
+    </style> -->
+    <style>
+  .whatsapp_main {
+    position: fixed;
+    text-align: right;
+    bottom: 80px;
+    right: 10px;
+    z-index: 10;
+  }
+
+  .whatsapp_main a {
+    position: relative;
+    display: inline-block;
+  }
+
+  #pic {
+    object-fit: cover !important;
+    animation: animation 2s infinite;
+    width: 70px;
+    height:70px;
+    cursor: pointer;
+  }
+
+  /* Tooltip styling */
+  .whatsapp_main a::after {
+    content: "Click to connect on WhatsApp";
+    position: absolute;
+    bottom: 100%; /* upar show hoga */
+    right: 0;
+    background: #25d366;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+  }
+
+  .whatsapp_main a:hover::after {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+
+  @keyframes animation {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateY(-15px);
+      /* Move up by 10px */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+</style>
   </head>
   <body>
     
