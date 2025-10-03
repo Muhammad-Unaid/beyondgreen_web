@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bg solar chatbot</title>
+    <style>
+      .whatsapp_main {
+        position: fixed;
+        text-align: right;
+        bottom: 80px;
+        right: 10px;
+        z-index: 10;
+      }
+      #pic {
+        /* border: 2px solid; */
+        object-fit: cover !important;
+        animation: animation 2s infinite;
+        width: 80px;
+        height: 80px;
+      }
+
+      #pic {
+        /* border: 2px solid; */
+        object-fit: cover !important;
+        animation: animation 2s infinite;
+      }
+
+      @keyframes animation {
+        0% {
+          transform: translateY(0);
+        }
+
+        25% {
+          transform: translateX(0);
+        }
+
+        50% {
+          transform: translateY(-10px);
+          /* Move up by 10px */
+        }
+
+        100% {
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="whatsapp_main">
+      <a href="https://wa.me/923012319157" target="_blank"
+        ><img src="whatsapp.png" alt="whatsapp" id="pic"
+      /></a>
+    </div>
+
+    <header>
+      <img src="header.png" alt="FoodsInn Promo Banner" />
+    </header>
+
+    <div class="container mt-4">
+      <!-- Deals Section -->
+      <img src="img1.png" alt="Deals" class="category-img" />
+
+      <!-- Italian Section -->
+      <img src="img2.png" alt="Italian" class="category-img" />
+
+      <!-- Burger Section -->
+      <img src="img3.png" alt="Burger" class="category-img" />
+
+      
+
+      <!-- Hot Beverages Section -->
+      <img src="footer.png" alt="Hot Beverages" class="category-img" />
+    </div>
+
+    <!-- B-G solar web chatbot  -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+      chat-icon="https://drive.google.com/file/d/1VJ5loTWzyEYAWKc_b7eB_QhJAfc_9Nv8/view?usp=sharing"
+      intent="WELCOME"
+      chat-title="beyondgreen"
+      agent-id="94e00270-5408-49e7-9c2d-feccf4a14b58"
+      language-code="en"
+      style="
+        --df-messenger-bot-message: #52b947; /* Bot msg black */
+        --df-messenger-user-message: #969393; /* User msg white */
+        --df-messenger-font-color: #ffffff; /* Bot text white */
+        --df-messenger-button-titlebar-color: #52b947; /* Header black */
+        --df-messenger-button-titlebar-font-color: #ffffff; /* Header text white */
+        --df-messenger-chat-background-color: #ffffff; /* Chat BG white */
+        --df-messenger-input-box-color: #ffffff; /* Input box white */
+        --df-messenger-input-font-color: #000000; /* Input text black */
+        --df-messenger-input-placeholder-font-color: #555555; /* Placeholder grey */
+        --df-messenger-send-icon: #52b947; /* Send icon black */
+        --df-messenger-chip-color: #ffffff; /* Chips white */
+        --df-messenger-chip-border-color: #52b947; /* Chips border black */
+        --df-messenger-minimized-chat-close-icon-color: #000000; /* Close icon white */
+      "
+    ></df-messenger>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+      <p>
+        &copy; 2025
+        <a href="https://softcodix.com/" style="text-decoration: none">
+          SOFTCODIX
+        </a>
+        All rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>
