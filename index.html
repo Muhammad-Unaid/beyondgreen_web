@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bg solar chatbot</title>
-<!-- 
+    <!-- 
     <style>
       .whatsapp_main {
         position: fixed;
@@ -145,6 +145,30 @@
         }
       }
     </style> -->
+    <style>
+      df-messenger {
+        z-index: 999;
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        --df-messenger-chat-window-height: 70px; /* Adjusts chat window height */
+      }
+
+      @media (max-height: 700px) {
+        df-messenger {
+          --df-messenger-chat-window-height: 70%; /* For small screens/laptops */
+        }
+      }
+
+      @media (max-width: 768px) {
+        df-messenger {
+          --df-messenger-chat-window-height: 75%; /* For mobile/tablet */
+          bottom: 0;
+          right: 0;
+          left: 0;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- <div class="whatsapp_main">
@@ -195,6 +219,7 @@
       agent-id="94e00270-5408-49e7-9c2d-feccf4a14b58"
       language-code="en"
       style="
+        --df-messenger-chat-window-height: 80vh;
         --df-messenger-bot-message: #52b947; /* Bot msg black */
         --df-messenger-user-message: #969393; /* User msg white */
         --df-messenger-font-color: #ffffff; /* Bot text white */
