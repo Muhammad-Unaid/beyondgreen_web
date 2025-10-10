@@ -235,7 +235,7 @@
         --df-messenger-minimized-chat-close-icon-color: #000000; /* Close icon white */
       "
     ></df-messenger>
-    <script>
+    <!-- <script>
       (function () {
         // Custom CSS you want to inject into the chatbot
         const customCSS = `
@@ -308,6 +308,100 @@
         // Stop after 10 seconds if not found
         setTimeout(() => clearInterval(interval), 10000);
       })();
+    </script> -->
+
+    <script>
+        (function () {
+            // Custom CSS you want to inject into the chatbot
+            const customCSS = `
+            .chat-wrapper {
+                bottom: 90px !important;
+                right: 20px !important;
+            }
+
+            .chat-wrapper::after {
+                background: url(data:image/jpeg;base64,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) no-repeat left / contain;
+                content: "Powered by SoftCodix" !important;
+                position: absolute;
+                bottom: -60px;
+                right: 101px;
+                margin-bottom: 8px;
+                background-color: #ffffff;
+                color: #000000;
+                font-size: 13px;
+                font-weight: 600;
+                padding: 5px 5px 5px 25px;
+                border-radius: 8px;
+                white-space: nowrap;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                z-index: 10000;
+            }
+
+            .chat-wrapper.chat-open{
+                margin-top: 10px;
+                max-height: 700px;
+                height: -webkit-fill-available !important
+            }
+
+            .chat-wrapper.chat-min.chat-open{
+                height: auto !important;
+            }
+
+            @media (max-width: 768px) {
+            .chat-wrapper {
+                bottom: 10px !important;
+                right: 10px !important;
+                width: calc(100% - 20px) !important;
+            }
+            }
+
+            @media (max-width: 480px) {
+            .chat-wrapper {
+                bottom: 5px !important;
+                right: 5px !important;
+                width: calc(100% - 10px) !important;
+            }
+            }
+        `;
+
+            // Try to find the shadow root that actually contains the chat window
+            function findChatWrapperShadowRoot() {
+                const dfMessenger = document.querySelector('df-messenger');
+                if (!dfMessenger) return null;
+                const queue = [];
+                if (dfMessenger.shadowRoot) queue.push(dfMessenger.shadowRoot);
+
+                while (queue.length) {
+                    const root = queue.shift();
+                    if (root.querySelector('.chat-wrapper, .title-wrapper')) return root;
+                    const elements = root.querySelectorAll('*');
+                    for (const el of elements) {
+                        if (el.shadowRoot) queue.push(el.shadowRoot);
+                    }
+                }
+                return null;
+            }
+
+            // Inject your CSS into that shadow root
+            function injectCustomStyle() {
+                const shadowRoot = findChatWrapperShadowRoot();
+                if (!shadowRoot) return false;
+
+                const styleEl = document.createElement('style');
+                styleEl.textContent = customCSS;
+                shadowRoot.appendChild(styleEl);
+                console.log("✅ Custom chat CSS applied!");
+                return true;
+            }
+
+            // Keep checking until the widget is ready
+            const interval = setInterval(() => {
+                if (injectCustomStyle()) clearInterval(interval);
+            }, 300);
+
+            // Stop after 10 seconds if not found
+            setTimeout(() => clearInterval(interval), 10000);
+        })();
     </script>
 
     <footer class="bg-dark text-white text-center py-3 mt-5">
