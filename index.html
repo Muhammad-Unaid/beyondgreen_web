@@ -235,6 +235,80 @@
         --df-messenger-minimized-chat-close-icon-color: #000000; /* Close icon white */
       "
     ></df-messenger>
+    <script>
+      (function () {
+        // Custom CSS you want to inject into the chatbot
+        const customCSS = `
+            .chat-wrapper {
+            bottom: 90px !important;
+            right: 20px !important;
+            }
+
+            .chat-wrapper.chat-open{
+                margin-top: 10px;
+                height: -webkit-fill-available !important
+            }
+
+            .chat-wrapper.chat-min.chat-open{
+                height: auto !important;
+            }
+
+            @media (max-width: 768px) {
+            .chat-wrapper {
+                bottom: 10px !important;
+                right: 10px !important;
+                width: calc(100% - 20px) !important;
+            }
+            }
+
+            @media (max-width: 480px) {
+            .chat-wrapper {
+                bottom: 5px !important;
+                right: 5px !important;
+                width: calc(100% - 10px) !important;
+            }
+            }
+        `;
+
+        // Try to find the shadow root that actually contains the chat window
+        function findChatWrapperShadowRoot() {
+          const dfMessenger = document.querySelector("df-messenger");
+          if (!dfMessenger) return null;
+          const queue = [];
+          if (dfMessenger.shadowRoot) queue.push(dfMessenger.shadowRoot);
+
+          while (queue.length) {
+            const root = queue.shift();
+            if (root.querySelector(".chat-wrapper")) return root;
+            const elements = root.querySelectorAll("*");
+            for (const el of elements) {
+              if (el.shadowRoot) queue.push(el.shadowRoot);
+            }
+          }
+          return null;
+        }
+
+        // Inject your CSS into that shadow root
+        function injectCustomStyle() {
+          const shadowRoot = findChatWrapperShadowRoot();
+          if (!shadowRoot) return false;
+
+          const styleEl = document.createElement("style");
+          styleEl.textContent = customCSS;
+          shadowRoot.appendChild(styleEl);
+          console.log("✅ Custom chat CSS applied!");
+          return true;
+        }
+
+        // Keep checking until the widget is ready
+        const interval = setInterval(() => {
+          if (injectCustomStyle()) clearInterval(interval);
+        }, 300);
+
+        // Stop after 10 seconds if not found
+        setTimeout(() => clearInterval(interval), 10000);
+      })();
+    </script>
 
     <footer class="bg-dark text-white text-center py-3 mt-5">
       <p>
